@@ -1,0 +1,26 @@
+{
+  "name": "publicrelief",
+  "version": "1.0.0",
+  "description": "Public Relief - Charity organisation using blockchain for transparency & accountability.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ellarhur/publicrelief.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ellarhur/publicrelief/issues"
+  },
+  "homepage": "https://github.com/ellarhur/publicrelief#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "uuid": "^11.1.0"
+  }
+}
