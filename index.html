@@ -3,16 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Public Relief - Every donation’s impact made visible to everyone.
-    </title>
-    <link rel="stylesheet" href="style.css">
+    <title>Public Relief - Every donation's impact made visible to everyone.</title>
+    <link rel="stylesheet" href="./src/css/app.css">
 </head>
 <body>
-    <header>
-        <h1>Public Relief</h1>
-        <p>Every donation’s impact made visible to everyone.</p>
-    </header>
+    <nav class="navbar">
+        <a href="#" class="header-title">
+            <img src="./src/images/publiclogo.jpg" alt="Public Relief Logo" class="logo-image">
+        </a>
+        <ul class="nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About us</a></li>
+            <li><a href="#">Current projects</a></li>
+            <li><a href="#">All donations</a></li>
+            <li><button class="bigbutton"><a href="#">Make a donation now</a></button></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
     <main>
-        
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-slide active">
+                    <img src="./src/images/publicrelief1.jpg" alt="Public Relief Image 1">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./src/images/publicrelief2.jpg" alt="Public Relief Image 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./src/images/publicrelief3.jpg" alt="Public Relief Image 3">
+                </div>
+                <div class="carousel-slide">
+                    <img src="./src/images/publicrelief4.jpg" alt="Public Relief Image 4">
+                </div>
+            </div>
+            <button class="carousel-button prev">&#10094;</button>
+            <button class="carousel-button next">&#10095;</button>
+            <div class="carousel-dots"></div>
+        </div>
+        <p>Every donation's impact made visible to everyone.</p>
+    </main>
+    <script src="./src/js/carousel.js"></script>
 </body>
 </html>
