@@ -4,7 +4,9 @@
   "description": "Public Relief - Charity organisation using blockchain for transparency & accountability.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest",
+    "start": "node src/server.mjs",
+    "dev": "nodemon src/server.mjs"
   },
   "repository": {
     "type": "git",
@@ -18,9 +20,14 @@
   },
   "homepage": "https://github.com/ellarhur/publicrelief#readme",
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.1",
+    "vitest": "^3.1.4"
   },
   "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^4.18.2",
+    "mongoose": "^8.15.1",
     "uuid": "^11.1.0"
   }
 }

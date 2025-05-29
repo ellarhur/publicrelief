@@ -329,6 +329,7 @@ a:visited {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
     background-color: rgba(108, 88, 76, 0.7);
     padding: 2rem;
     border-radius: 8px;
@@ -338,8 +339,8 @@ a:visited {
 }
 
 .startpage-text {
-    color: #f0ead2;
-    font-size: 2.7rem;
+    color: #fff;
+    font-size: 2.0rem;
     text-align: center;
     margin-bottom: 1.5rem;
     letter-spacing: 0.1rem;
@@ -350,4 +351,95 @@ a:visited {
     margin-top: 2rem;
     font-size: 1.2rem;
     padding: 1rem 2rem;
+}
+
+.text-container{
+    display: flex;
+    flex-direction:column;
+    align-items:left;
+    text-align:left;
+    padding:"20px";
+    border: 1px solid #000;
+    font-size:1.9rem;
+    letter-spacing: 0.1rem;
+    font-family: "New Tegomin", serif;
+    width:50%;
+}
+
+h2{
+    color: #6c584c;
+    font-family: "New Tegomin", serif;
+    font-size:2.5rem;
+    letter-spacing: 0.1rem;
+    font-family: "New Tegomin", serif;
+}
+
+.aboutimages-container {
+    display:flex;
+    align-items:right;
+    width:50%;
+    height:auto;
+    padding:20px;
+    align-content: column;
+}
+
+.aboutimages {
+    display:flex;
+    align-items:right;
+    width:300px;
+    height:auto;
+    padding:20px;
+    align-content: column;
+}
+
+.about-container {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+    min-height: calc(100vh - 80px);
+}
+
+.text-container {
+    flex: 1;
+    padding: 2rem;
+    border: 1px solid #6c584c;
+    border-radius: 8px;
+    background-color: rgba(240, 234, 210, 0.8);
+}
+
+.about-images-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.about-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+    }
+    
+    .text-container,
+    .about-images-container {
+        width: 100%;
+    }
+}
+
+
+.projects-images-container {
+    display:flex;
+    align-items:right;
+    width:50%;
+    height:auto;
+    padding:20px;
+    align-content: column;
 }

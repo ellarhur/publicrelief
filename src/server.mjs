@@ -1,10 +1,5 @@
-import http from "http";
-import {v4 as uuidv4} from "uuid";
-import JsonHandler from "../JsonHandler.mjs";
+import { app } from "./app.mjs";
 
-const server = http.createServer(async (req, res) => {
+const PORT = process.env.PORT || 5010;
 
-});
-
-const PORT = 5010;
-server.listen(PORT, () => console.log(`Server is listening on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server listening: PORT http://localhost:${PORT} och kör i läget ${process.env.NODE_ENV}`));
