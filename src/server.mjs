@@ -1,14 +1,53 @@
 import express from 'express';
 import cors from 'cors';
-import { app } from "./app.mjs";
+import { v4 as uuidv4 } from 'uuid';
+import Donation from './models/donation.mjs';
 
 const app = express();
+const port = process.env.PORT || 3010;
 
 app.use(cors());
+app.use(express.json());
 
+const API_BASE = '/api/v1';
 
+// Hämta alla donationer
+app.get(`${API_BASE}/donations`, (req, res) => {
+    try {
+        const donations = Donation.getAllDonations();
+        res.json(donations);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 
+// Hämta en specifik donation med ID
+app.get(`${API_BASE}/donation/:id`, (req, res) => {
+    try {
+        const donation = Donation.getDonationById(req.params.id);
+        if (!donation) {
+            return res.status(404).json({ error: 'Donation hittades inte' });
+        }
+        res.json(donation);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 
-const PORT = process.env.PORT || 5010;
+// Skapa en ny donation
+app.post(`${API_BASE}/donation`, (req, res) => {
+    try {
+        const donationData = {
+            id: uuidv4(),
+            ...req.body
+        };
+        const newDonation = Donation.createDonation(donationData);
+        res.status(201).json(newDonation);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 
-app.listen(PORT, () => console.log(`Server listening: PORT http://localhost:${PORT} och kör i läget ${process.env.NODE_ENV}`));
+app.listen(port, () => {
+    console.log(`Server körs på port ${port}`);
+});
