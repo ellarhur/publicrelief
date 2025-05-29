@@ -1,13 +1,26 @@
 import express from 'express';
 import cors from 'cors';
 import { v4 as uuidv4 } from 'uuid';
-import Donation from './models/donation.mjs';
+import Donation from './models/Donation.mjs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = process.env.PORT || 3010;
 
 app.use(cors());
 app.use(express.json());
+
+// Servera statiska filer från src-mappen
+app.use(express.static(path.join(__dirname)));
+
+// Specifik route för donation.html
+app.get('/donation.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'pages', 'donation.html'));
+});
 
 const API_BASE = '/api/v1';
 
