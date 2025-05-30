@@ -30,5 +30,13 @@
     "data": "{\"id\":\"0b65650590654faaab533c7328808aaa\",\"donor\":\"Martin\",\"email\":\"martin@email.com\",\"amount\":100,\"date\":\"Fri May 30 2025 15:53:18 GM\",\"currency\":\"EUR\",\"project\":\"Sudan war\",\"message\":\"Hello, thanks for a great job!\",\"timestamp\":1748613198934}",
     "nonce": 34236,
     "difficulty": 4
+  },
+  {
+    "timestamp": 1748624550199,
+    "hash": "00001690a072a203731c921fd2c27b0ec18ad86894f240db819689615c5f191e",
+    "lastHash": "000010dba5a082bda5467384f14e03572875309329a186233d0fd79b7a8f51fe",
+    "data": "{\"id\":\"03e38e768f3c43249a53fcddffc0fd3d\",\"donor\":\"Thom Åkesson\",\"email\":\"thom@publicrelief.com\",\"amount\":50,\"date\":\"Fri May 30 2025 19:02:30 GM\",\"currency\":\"SEK\",\"project\":\"Palestine\",\"message\":\"Hope you solve the war!\",\"timestamp\":1748624550168}",
+    "nonce": 62125,
+    "difficulty": 4
   }
 ]
