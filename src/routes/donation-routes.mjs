@@ -5,11 +5,15 @@ import {
 	getDonationById,
 } from '../controllers/donation-controller.mjs';
 
-const bookingRouter = express.Router();
+const donationRouter = express.Router();
 
 donationRouter
 	.route('/')
 	.get(listAllDonations)
-	.post(), createDonation;
+	.post(createDonation);
+
+donationRouter
+	.route('/:id')
+	.get(getDonationById);
 
 export default donationRouter;

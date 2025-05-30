@@ -1,44 +1,10 @@
 [
-  {
-    "timestamp": 1748597136040,
-    "hash": "50621eb2ed56dfb6b604440493b5db559127248a9ba721e67c4d87538f4145f3",
-    "lastHash": "#1",
-    "data": "{\"id\":\"bc771d1e-e3f9-40e4-ba17-1ba04750d643\",\"name\":\"Ella Åkesson Hummerdal\",\"email\":\"ella.belle.hummerdahl@gmail.com\",\"amount\":\"5\",\"message\":\"hej\",\"timestamp\":\"2025-05-30T09:25:36.017Z\"}"
-  },
-  {
-    "timestamp": 1748601793467,
-    "hash": "b970a5f3a150f3aeef95fd6fd07a33dba22ddc3b12926c282c491139668af03f",
-    "lastHash": "50621eb2ed56dfb6b604440493b5db559127248a9ba721e67c4d87538f4145f3",
-    "data": "{\"id\":\"596f489e-50e5-417f-9afb-41462b7cea97\",\"name\":\"Martin Åkesson \",\"email\":\"martin.ew.akesson@gmail.com\",\"amount\":\"100\",\"message\":\"Bra jobbat!\",\"timestamp\":\"2025-05-30T10:43:13.433Z\"}"
-  },
-  {
-    "timestamp": 1748601823369,
-    "hash": "ad07456e3e80be0a3a7c0846cc3ea5f83c6b18d882b45952a1f41a3fdff657a7",
-    "lastHash": "b970a5f3a150f3aeef95fd6fd07a33dba22ddc3b12926c282c491139668af03f",
-    "data": "{\"id\":\"802e9157-a34d-416b-acde-eedb33d0f6d4\",\"name\":\"Thom Åkesson\",\"email\":\"Thom@catbusiness.com\",\"amount\":\"90\",\"message\":\"Heja er!\",\"timestamp\":\"2025-05-30T10:43:43.350Z\"}"
-  },
-  {
-    "timestamp": 1748601852269,
-    "hash": "51f34f4aceffec64b3749ef28fb581ffc7a646f46197a6d273fe7fc9adb2a870",
-    "lastHash": "ad07456e3e80be0a3a7c0846cc3ea5f83c6b18d882b45952a1f41a3fdff657a7",
-    "data": "{\"id\":\"58560f99-b77a-4a8c-8127-59f9ae46fd87\",\"name\":\"Michael Gustavsson\",\"email\":\"michael@skaftoskorpan.com\",\"amount\":\"50\",\"message\":\"Bra jobbat hörni!\",\"timestamp\":\"2025-05-30T10:44:12.251Z\"}"
-  },
-  {
-    "timestamp": 1748601887990,
-    "hash": "fc1144f04ef5f394e6c261bdbd50905609bcb7e316fccd536b4f82c02aa495b1",
-    "lastHash": "51f34f4aceffec64b3749ef28fb581ffc7a646f46197a6d273fe7fc9adb2a870",
-    "data": "{\"id\":\"ac0a4a7f-c4c3-48bd-9503-d7d4f1823579\",\"name\":\"Syrén Häggsson\",\"email\":\"heggson@gmail.com\",\"amount\":\"40\",\"message\":\"Ella\",\"timestamp\":\"2025-05-30T10:44:47.972Z\"}"
-  },
-  {
-    "timestamp": 1748604201452,
-    "hash": "b5abca995dc2f7a04282763eb632de12407de2d438230ed15e51f0dc5821ad3a",
-    "lastHash": "fc1144f04ef5f394e6c261bdbd50905609bcb7e316fccd536b4f82c02aa495b1",
-    "data": "{\"id\":\"bf8a16c1-f45a-40e3-bb21-a86b705ce77d\"}"
-  },
-  {
-    "timestamp": 1748604494944,
-    "hash": "60ec9b12a3c097cd350692ca13c74091d3853ad18bfb124fde3dcb93eb0b20e3",
-    "lastHash": "b5abca995dc2f7a04282763eb632de12407de2d438230ed15e51f0dc5821ad3a",
-    "data": "{\"id\":\"9314ee96-0fdf-4a58-9dd4-ef7dfaec57cf\"}"
-  }
+    {
+        "timestamp": "2024-01-01T00:00:00.000Z",
+        "hash": "genesis-hash",
+        "lastHash": "genesis-last-hash",
+        "data": "[]",
+        "nonce": 0,
+        "difficulty": 1
+    }
 ]

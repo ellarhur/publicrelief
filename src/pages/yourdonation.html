@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Public Relief - Donations</title>
+    <title>Public Relief - Search Block</title>
     <link rel="stylesheet" href="../css/app.css" />
   </head>
   <body>
     <nav class="navbar">
-      <a href="#" class="header-title">
+      <a href="../../index.html" class="header-title">
         <img
           src="../images/publiclogo.jpg"
           alt="Public Relief Logo"
@@ -35,16 +35,16 @@
     </nav>
 
     <div class="search-container">
-<h2> Search for your specific donation with your ID / donation number</h2>
-<form id="search-form">
-    <input type="text" id="search-input" placeholder="ID here" required>
-    <button type="submit" class="bigbutton">Search</button>
-</form>
-<div id="search-results">
-
-</div>
-
+      <h2>Search for a specific donation block using its hash</h2>
+      <form id="search-form" class="search-form">
+        <div class="form-group">
+          <input type="text" id="search-input" placeholder="Enter block hash here" required>
+          <button type="submit" class="bigbutton">Search</button>
+        </div>
+      </form>
+      <div id="search-results"></div>
     </div>
-    </main>
-</body>
+
+    <script src="../js/search-donation.js"></script>
+  </body>
 </html>

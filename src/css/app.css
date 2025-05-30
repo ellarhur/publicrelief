@@ -646,3 +646,17 @@ h2{
     margin-right: auto;;
 
 }
+
+.error-message {
+    background-color: #ffebee;
+    border: 1px solid #ffcdd2;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    color: #c62828;
+}
+
+.error-message p {
+    margin: 0;
+    font-size: 1rem;
+}

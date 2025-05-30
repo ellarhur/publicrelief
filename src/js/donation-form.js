@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             donor: document.getElementById('donor').value,
             email: document.getElementById('email').value,
             amount: parseInt(document.getElementById('amount').value),
-            date: new Date().toISOString().split('T')[0],
+            date: new Date().toString().split('T')[0],
             currency: document.getElementById('currency').value,
             project: document.getElementById('project').value,
             message: document.getElementById('message').value,
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('http://localhost:3010/api/v1/donation', {
+            const response = await fetch('http://localhost:3000/api/v1/donation', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -26,13 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                alert('Tack för din donation! En bekräftelse har skickats till din e-post.');
+                alert(`Thannk you for your donation! Your donation ID is: ${donationId}\ which we also sent to your email.`);
                 form.reset();
             } else {
-                throw new Error('Något gick fel vid donationen');
+                throw new Error('Something went wrong!');
             }
         } catch (error) {
-            alert('Ett fel uppstod: ' + error.message);
+            alert('This error occurred: ' + error.message);
         }
     });
 }); 

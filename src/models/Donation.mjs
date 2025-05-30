@@ -1,4 +1,5 @@
-import { createHash } from '../utilities/hash.mjs';
+import { createHash, mineHash, verifyHash } from '../utilities/hash.mjs';
+import { GENESIS_BLOCK, INITIAL_DIFFICULTY } from './genesis.mjs';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -7,11 +8,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default class Donation {
-    constructor({timestamp, hash, lastHash, data}) {
+    constructor({timestamp, hash, lastHash, data, nonce, difficulty = INITIAL_DIFFICULTY}) {
         this.timestamp = timestamp;
         this.hash = hash;
         this.lastHash = lastHash;
         this.data = data;
+        this.nonce = nonce;
+        this.difficulty = difficulty;
     }
 
     static genesis() {
@@ -19,21 +22,53 @@ export default class Donation {
             timestamp: Date.now(),
             hash: '#1',
             lastHash: '######',
-            data: '[]'
+            data: '[]',
+            nonce: 0,
+            difficulty: INITIAL_DIFFICULTY
         });
     }
 
     static async mineBlock({previousDonation, data}) {
         const timestamp = Date.now();
         const lastHash = previousDonation.hash;
-        const hash = createHash(timestamp, lastHash, data);
-        return new this({timestamp, lastHash, hash, data});
+        
+        const { hash, nonce } = mineHash(timestamp, lastHash, data, INITIAL_DIFFICULTY);
+        
+        return new this({
+            timestamp,
+            lastHash,
+            hash,
+            data,
+            nonce,
+            difficulty: INITIAL_DIFFICULTY
+        });
+    }
+
+    static async validateBlock(block) {
+        const { timestamp, lastHash, hash, data, nonce, difficulty } = block;
+        
+        const calculatedHash = createHash(timestamp, lastHash, data, nonce);
+        if (calculatedHash !== hash) {
+            throw new Error('Ogiltig hash');
+        }
+        
+        if (!verifyHash(hash, difficulty)) {
+            throw new Error('Hash uppfyller inte svårighetsgraden');
+        }
+        
+        return true;
     }
 
     static async getAllDonations() {
         try {
             const data = await fs.readFile(path.join(__dirname, '../db/donations.json'), 'utf8');
-            return JSON.parse(data);
+            const donations = JSON.parse(data);
+            
+            for (let i = 1; i < donations.length; i++) {
+                await this.validateBlock(donations[i]);
+            }
+            
+            return donations;
         } catch (error) {
             await this.logError('Fel vid läsning av donationer: ' + error.message);
             return [];
@@ -50,12 +85,16 @@ export default class Donation {
                 data: JSON.stringify(donationData)
             });
 
+            // Validera det nya blocket
+            await this.validateBlock(newDonation);
+
             donations.push(newDonation);
             await fs.writeFile(
                 path.join(__dirname, '../db/donations.json'),
                 JSON.stringify(donations, null, 2)
             );
-        return newDonation;
+            
+            return newDonation;
         } catch (error) {
             await this.logError('Fel vid skapande av donation: ' + error.message);
             throw error;
@@ -64,7 +103,7 @@ export default class Donation {
 
     static async logError(message) {
         try {
-            const timestamp = new Date().toISOString();
+            const timestamp = new Date().toString();
             const logMessage = `[ERROR] ${timestamp}: ${message}\n`;
             const logPath = path.join(__dirname, '../logs/error.log');
             
@@ -78,7 +117,7 @@ export default class Donation {
 
     static async logInfo(message) {
         try {
-            const timestamp = new Date().toISOString();
+            const timestamp = new Date().toString();
             const logMessage = `[INFO] ${timestamp}: ${message}\n`;
             const logPath = path.join(__dirname, '../logs/info.log');
             

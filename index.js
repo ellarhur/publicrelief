@@ -1,5 +1,3 @@
-import express from 'express';
-
 FormData.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
