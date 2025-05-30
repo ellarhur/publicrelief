@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('http://localhost:3000/api/v1/donation', {
+            const response = await fetch('http://localhost:3010/api/v1/donation', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -26,10 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (response.ok) {
-                alert(`Thannk you for your donation! Your donation ID is: ${donationId}\ which we also sent to your email.`);
+                alert(`Thank you for your donation! Your donation ID is: ${donation.id} which we also sent to your email.`);
                 form.reset();
             } else {
-                throw new Error('Something went wrong!');
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Something went wrong!');
             }
         } catch (error) {
             alert('This error occurred: ' + error.message);

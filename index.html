@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./src/app.mjs" defer></script>
+    <script src="./src/js/navbar.js" defer></script>
     <title>Public Relief - Every donation's impact made visible to everyone.</title>
     <link rel="stylesheet" href="./src/css/app.css">
 </head>
@@ -12,25 +13,26 @@
         <a href="./index.html" class="header-title">
             <img src="./src/images/publiclogo.jpg" alt="Public Relief Logo" class="logo-image">
         </a>
-        <ul class="nav-menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="./src/pages/about.html">About us</a></li>
-            <li><a href="./src/pages/projects.html">Current projects</a></li>
-            <li><a href="./src/pages/donations.html">All donations</a></li>
-            <li><a href="./src/pages/yourdonation.html">Search for specific donation</a></li>
-            <li><button class="bigbutton"><a href="./src/pages/donation.html">Make a donation now</a></button></li>        </ul>
         <div class="hamburger">
             <span></span>
             <span></span>
             <span></span>
         </div>
+        <ul class="nav-menu">
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./src/pages/about.html">About us</a></li>
+            <li><a href="./src/pages/projects.html">Current projects</a></li>
+            <li><a href="./src/pages/donations.html">All donations</a></li>
+            <li><a href="./src/pages/yourdonation.html">Search for specific donation</a></li>
+            <li><a href="./src/pages/donation.html" class="bigbutton">Make a donation now</a></li>
+        </ul>
     </nav>
     <main>
         <div class="startpage-image-container">
             <img src="./src/images/publicrelief8.jpg" alt="Public Relief" class="startpage-image">
             <div class="startpage-text-container">
                 <p class="startpage-text">Your donation's impact made visible to everyone.</p>
-                <button class="bigbutton"><a href="#">Make a donation now</a></button>
+                <a href="./src/pages/donation.html" class="bigbutton">Make a donation now</a>
             </div>
         </div>
     </main> 

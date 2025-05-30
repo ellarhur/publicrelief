@@ -23,11 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error('No donation found with this block hash');
             }
 
+            // Parse the donation data from the block
+            const donationData = JSON.parse(donation.data);
+            
             // Create a donation card with the information
             const donationCard = document.createElement('div');
             donationCard.className = 'donation-card';
             
-            const date = new Date(donation.timestamp).toLocaleDateString('en-US');
+            const date = new Date(donation.timestamp).toLocaleDateString('sv-SE');
             
             donationCard.innerHTML = `
                 <h3>Block Information</h3>
@@ -36,11 +39,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p><strong>Timestamp:</strong> ${date}</p>
                 <hr>
                 <h4>Donation Details</h4>
-                <p><strong>Donor:</strong> ${donation.donor}</p>
-                <p><strong>Email:</strong> ${donation.email}</p>
-                <p><strong>Amount:</strong> ${donation.amount} ${donation.currency}</p>
-                <p><strong>Project:</strong> ${donation.project}</p>
-                ${donation.message ? `<p><strong>Message:</strong> ${donation.message}</p>` : ''}
+                <p><strong>Donor:</strong> ${donationData.donor}</p>
+                <p><strong>Email:</strong> ${donationData.email}</p>
+                <p><strong>Amount:</strong> ${donationData.amount} ${donationData.currency}</p>
+                <p><strong>Project:</strong> ${donationData.project}</p>
+                ${donationData.message ? `<p><strong>Message:</strong> ${donationData.message}</p>` : ''}
             `;
 
             // Clear previous results and show the new one

@@ -49,11 +49,11 @@ export default class Donation {
         
         const calculatedHash = createHash(timestamp, lastHash, data, nonce);
         if (calculatedHash !== hash) {
-            throw new Error('Ogiltig hash');
+            throw new Error('Invalid hash');
         }
         
         if (!verifyHash(hash, difficulty)) {
-            throw new Error('Hash uppfyller inte svårighetsgraden');
+            throw new Error('Hash does not meet difficulty requirement');
         }
         
         return true;
@@ -70,7 +70,7 @@ export default class Donation {
             
             return donations;
         } catch (error) {
-            await this.logError('Fel vid läsning av donationer: ' + error.message);
+            await this.logError('Error reading donations: ' + error.message);
             return [];
         }
     }
@@ -80,12 +80,25 @@ export default class Donation {
             const donations = await this.getAllDonations();
             const previousDonation = donations[donations.length - 1] || this.genesis();
             
+            // Ensure donationData is properly formatted
+            const formattedData = {
+                id: donationData.id,
+                donor: donationData.donor,
+                email: donationData.email,
+                amount: donationData.amount,
+                date: donationData.date,
+                currency: donationData.currency,
+                project: donationData.project,
+                message: donationData.message,
+                timestamp: donationData.timestamp
+            };
+
             const newDonation = await this.mineBlock({
                 previousDonation,
-                data: JSON.stringify(donationData)
+                data: JSON.stringify(formattedData)
             });
 
-            // Validera det nya blocket
+            // Validate the new block
             await this.validateBlock(newDonation);
 
             donations.push(newDonation);
@@ -94,9 +107,10 @@ export default class Donation {
                 JSON.stringify(donations, null, 2)
             );
             
+            await this.logInfo(`New donation created with ID: ${formattedData.id}`);
             return newDonation;
         } catch (error) {
-            await this.logError('Fel vid skapande av donation: ' + error.message);
+            await this.logError('Error creating donation: ' + error.message);
             throw error;
         }
     }
@@ -111,7 +125,7 @@ export default class Donation {
             
             await fs.appendFile(logPath, logMessage);
         } catch (error) {
-            console.error('Kunde inte logga fel:', error);
+            console.error('Could not log error:', error);
         }
     }
 
@@ -121,12 +135,11 @@ export default class Donation {
             const logMessage = `[INFO] ${timestamp}: ${message}\n`;
             const logPath = path.join(__dirname, '../logs/info.log');
             
-
             await fs.mkdir(path.dirname(logPath), { recursive: true });
             
             await fs.appendFile(logPath, logMessage);
         } catch (error) {
-            console.error('Kunde inte logga info:', error);
+            console.error('Could not log info:', error);
         }
     }
 }
