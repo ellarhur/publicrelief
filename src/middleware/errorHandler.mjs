@@ -7,5 +7,4 @@ export default (err, req, res, next) => {
         statusCode: err.statusCode,
         message: err.message
     })
-
 }

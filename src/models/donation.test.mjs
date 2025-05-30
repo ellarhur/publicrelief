@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import Donation from './donation.mjs';
+import Donation from './Donation.mjs';
 
 describe('Donation', () => {
     const timestamp = new Date().toString();

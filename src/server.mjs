@@ -25,38 +25,46 @@ app.get('/donation.html', (req, res) => {
 const API_BASE = '/api/v1';
 
 // Hämta alla donationer
-app.get(`${API_BASE}/donations`, (req, res) => {
+app.get(`${API_BASE}/donations`, async (req, res) => {
     try {
-        const donations = Donation.getAllDonations();
+        const donations = await Donation.getAllDonations();
         res.json(donations);
     } catch (error) {
+        console.error('Fel vid hämtning av donationer:', error);
         res.status(500).json({ error: error.message });
     }
 });
 
 // Hämta en specifik donation med ID
-app.get(`${API_BASE}/donation/:id`, (req, res) => {
+app.get(`${API_BASE}/donation/:id`, async (req, res) => {
     try {
-        const donation = Donation.getDonationById(req.params.id);
+        const donations = await Donation.getAllDonations();
+        const donation = donations.find(d => {
+            const data = JSON.parse(d.data);
+            return data.id === req.params.id;
+        });
+        
         if (!donation) {
             return res.status(404).json({ error: 'Donation hittades inte' });
         }
         res.json(donation);
     } catch (error) {
+        console.error('Fel vid hämtning av donation:', error);
         res.status(500).json({ error: error.message });
     }
 });
 
 // Skapa en ny donation
-app.post(`${API_BASE}/donation`, (req, res) => {
+app.post(`${API_BASE}/donation`, async (req, res) => {
     try {
         const donationData = {
             id: uuidv4(),
             ...req.body
         };
-        const newDonation = Donation.createDonation(donationData);
+        const newDonation = await Donation.createDonation(donationData);
         res.status(201).json(newDonation);
     } catch (error) {
+        console.error('Fel vid skapande av donation:', error);
         res.status(500).json({ error: error.message });
     }
 });

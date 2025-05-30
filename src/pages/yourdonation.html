@@ -1,43 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Public Relief - About Us</title>
-    <link rel="stylesheet" href="../css/app.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Public Relief - Donations</title>
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+  <body>
     <nav class="navbar">
-        <a href="#" class="header-title">
-            <img src="../images/publiclogo.jpg" alt="Public Relief Logo" class="logo-image">
-        </a>
-        <ul class="nav-menu">
-            <li><a href="../../index.html">Home</a></li>
-            <li><a href="./about.html">About us</a></li>
-            <li><a href="./projects.html">Current projects</a></li>
-            <li><a href="./donations.html">All donations</a></li>
-            <li><a href="./yourdonation.html">Search for specific donation</a></li>
-            <li><button class="bigbutton"><a href="./donation.html">Make a donation now</a></button></li>
-        </ul>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+      <a href="#" class="header-title">
+        <img
+          src="../images/publiclogo.jpg"
+          alt="Public Relief Logo"
+          class="logo-image"
+        />
+      </a>
+      <ul class="nav-menu">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="./about.html">About us</a></li>
+        <li><a href="./projects.html">Current projects</a></li>
+        <li><a href="./donations.html">All donations</a></li>
+        <li><a href="./yourdonation.html">Search for specific donation</a></li>
+        <li>
+          <button class="bigbutton">
+            <a href="./donation.html">Make a donation now</a>
+          </button>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </nav>
-    <main class="projects-container">
-        <div class="text-container">
-            <h2>About Public Relief</h2>
-            <p>In a society where a lot of things feels uncertain, we wanted to be the difference. 
-            When our customers donate, they can be sure that their contribution is being correctly distributed.
-            We are 100% transparent with very single donation. 
-            We are the Public Relief - you can always check that your money was well spent.</p>
-        </div>
-        <div class="projects-images-container">
-            <img src="../images/publicrelief2.jpg" alt="About Public Relief 1" class="about-image">
-            <img src="../images/publicrelief3.jpg" alt="About Public Relief 2" class="about-image">
-            <img src="../images/publicrelief4.jpg" alt="About Public Relief 3" class="about-image">
-        </div>
+
+    <div class="search-container">
+<h2> Search for your specific donation with your ID / donation number</h2>
+<form id="search-form">
+    <input type="text" id="search-input" placeholder="ID here" required>
+    <button type="submit" class="bigbutton">Search</button>
+</form>
+<div id="search-results">
+
+</div>
+
+    </div>
     </main>
 </body>
 </html>

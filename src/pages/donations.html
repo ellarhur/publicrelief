@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Public Relief - Every donation’s impact made visible to everyone.
-    </title>
-    <link rel="stylesheet" href="../css/app.css">
-</head>
-<body>
-    <header>
-        <div class="logo">Public Relief</div>
-        <p>Every donation’s impact made visible to everyone.</p>
-        <nav>
-            <ul>
-                <li><a href="../../index.html">Home</a></li>
-                <li><a href="./about.html">About us</a></li>
-                <li><a href="./projects.html">Current projects</a></li>
-                <li><a href="./donations.html">All donations</a></li>
-                <li><a href="./yourdonation.html">Search for specific donation</a></li>
-                <li><button class="bigbutton"><a href="./donation.html">Make a donation now</a></button></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Public Relief - Donations</title>
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="#" class="header-title">
+        <img
+          src="../images/publiclogo.jpg"
+          alt="Public Relief Logo"
+          class="logo-image"
+        />
+      </a>
+      <ul class="nav-menu">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="./about.html">About us</a></li>
+        <li><a href="./projects.html">Current projects</a></li>
+        <li><a href="./donations.html">All donations</a></li>
+        <li><a href="./yourdonation.html">Search for specific donation</a></li>
+        <li>
+          <button class="bigbutton">
+            <a href="./donation.html">Make a donation now</a>
+          </button>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <main class="donations-container">
+      <h2>Alla Donationer</h2>
+      <div id="donations-list">      </div>
+    </main>
+
+    <script src="../js/donations.js"></script>
+  </body>
 </html>

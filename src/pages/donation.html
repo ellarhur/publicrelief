@@ -1,69 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Public Relief - Every donation's impact made visible to everyone.
-    </title>
-    <link rel="stylesheet" href="../css/app.css">
-</head>
-<body>
-    <header>
-        <div class="logo">Public Relief</div>
-        <p>Every donation's impact made visible to everyone.</p>
-        <nav>
-            <ul>
-                <li><a href="../../index.html">Home</a></li>
-                <li><a href="./about.html">About us</a></li>
-                <li><a href="./projects.html">Current projects</a></li>
-                <li><a href="./donations.html">All donations</a></li>
-                <li><a href="./yourdonation.html">Search for specific donation</a></li>
-                <li><button class="bigbutton"><a href="./donation.html">Make a donation now</a></button></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="donations-container">
-            <h2>Alla Donationer</h2>
-            <div id="donations-list"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Public Relief - Make a Donation</title>
+    <link rel="stylesheet" href="../css/app.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="#" class="header-title">
+        <img
+          src="../images/publiclogo.jpg"
+          alt="Public Relief Logo"
+          class="logo-image"
+        />
+      </a>
+      <ul class="nav-menu">
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="./about.html">About us</a></li>
+        <li><a href="./projects.html">Current projects</a></li>
+        <li><a href="./donations.html">All donations</a></li>
+        <li><a href="./yourdonation.html">Search for specific donation</a></li>
+        <li>
+          <button class="bigbutton">
+            <a href="./donation.html">Make a donation now</a>
+          </button>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <main class="donation-form-container">
+      <h2>Gör en donation</h2>
+      <form id="donation-form" class="donation-form">
+        <div class="form-group">
+          <label for="donor">Namn</label>
+          <input type="text" id="donor" name="donor" required>
         </div>
+
+        <div class="form-group">
+          <label for="email">E-post</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="amount">Belopp</label>
+          <input type="number" id="amount" name="amount" min="1" required>
+        </div>
+
+        <div class="form-group">
+          <label for="currency">Valuta</label>
+          <select id="currency" name="currency" required>
+            <option value="SEK">SEK</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="project">Projekt</label>
+          <select id="project" name="project" required>
+            <option value="Sudan war">Sudan war</option>
+            <option value="Ukraine">Ukraine</option>
+            <option value="Palestine">Palestine</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Meddelande (valfritt)</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="bigbutton">Skicka donation</button>
+      </form>
     </main>
 
-    <script>
-        const API_BASE = 'http://localhost:3010/api/v1';
-
-        async function fetchDonations() {
-            try {
-                const response = await fetch(`${API_BASE}/donations`);
-                const data = await response.json();
-                displayDonations(data);
-            } catch (error) {
-                console.error('Fel vid hämtning av donationer:', error);
-                document.getElementById('donations-list').innerHTML = '<p>Kunde inte hämta donationer. Försök igen senare.</p>';
-            }
-        }
-
-        function displayDonations(donations) {
-            const donationsList = document.getElementById('donations-list');
-            if (!donations || donations.length === 0) {
-                donationsList.innerHTML = '<p>Inga donationer hittades.</p>';
-                return;
-            }
-
-            const donationsHTML = donations.map(donation => `
-                <div class="donation-card">
-                    <h3>Donation #${donation.id}</h3>
-                    <p>Belopp: ${donation.amount} kr</p>
-                    <p>Datum: ${new Date(donation.timestamp).toLocaleDateString()}</p>
-                    <p>Hash: ${donation.hash}</p>
-                </div>
-            `).join('');
-
-            donationsList.innerHTML = donationsHTML;
-        }
-
-        // Hämta donationer när sidan laddas
-        document.addEventListener('DOMContentLoaded', fetchDonations);
-    </script>
-</body>
+    <script src="../js/donation-form.js"></script>
+  </body>
 </html>
