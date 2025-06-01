@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.classList.toggle('active');
     });
 
-    // Stäng menyn när man klickar på en länk
     document.querySelectorAll('.nav-menu li a').forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');

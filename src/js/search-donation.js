@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const blockHash = document.getElementById('search-input').value.trim();
 
         try {
-            // First get all donations
             const response = await fetch('http://localhost:3010/api/v1/donations');
             
             if (!response.ok) {
@@ -16,17 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const donations = await response.json();
             
-            // Find the donation with matching hash
             const donation = donations.find(d => d.hash === blockHash);
             
             if (!donation) {
                 throw new Error('No donation found with this block hash');
             }
 
-            // Parse the donation data from the block
             const donationData = JSON.parse(donation.data);
             
-            // Create a donation card with the information
             const donationCard = document.createElement('div');
             donationCard.className = 'donation-card';
             

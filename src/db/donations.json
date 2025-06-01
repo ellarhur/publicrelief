@@ -8,35 +8,27 @@
     "difficulty": 1
   },
   {
-    "timestamp": 1748612330102,
-    "hash": "00004fc99bf46ead16bbca94b3b1fe5b2ebf36ca3142ecec4823d3d1ae1201a6",
+    "timestamp": 1748799352376,
+    "hash": "0000b26c9781c5d59bd81dc1bbbb039901f5653f80aba74eab54d4a021b9d824",
     "lastHash": "genesis-hash",
-    "data": "{\"id\":\"ec5c424a-5cc7-4f57-8167-1c27d1ef97fa\"}",
-    "nonce": 59320,
+    "data": "{\"id\":\"54891e9a00124d608981273e793d8557\",\"donor\":\"Kalle\",\"email\":\"kalle@adonor.com\",\"amount\":100,\"date\":\"Sun Jun 01 2025 19:35:52 GM\",\"currency\":\"SEK\",\"project\":\"Sudan war\",\"message\":\"I just love what you guys do.\",\"timestamp\":1748799352355}",
+    "nonce": 124486,
     "difficulty": 4
   },
   {
-    "timestamp": 1748612760250,
-    "hash": "00003147c6b6ce1349c5607589e791775ab78aa520f40cd3d82b4240fd8ee07b",
-    "lastHash": "00004fc99bf46ead16bbca94b3b1fe5b2ebf36ca3142ecec4823d3d1ae1201a6",
-    "data": "{\"id\":\"2ffd1f1be9de43608fb655b3403753af\",\"donor\":\"Ella\",\"email\":\"ella.belle.hummerdahl@gmail.com\",\"amount\":5,\"date\":\"Fri May 30 2025 15:46:00 GM\",\"currency\":\"SEK\",\"project\":\"Sudan war\",\"message\":\"Hej!\",\"timestamp\":1748612760221}",
-    "nonce": 18424,
+    "timestamp": 1748799389568,
+    "hash": "00007308b3e3b89e83a8571b26f73cb50d4dd9f8f6723bc123fc9292dd5a2783",
+    "lastHash": "0000b26c9781c5d59bd81dc1bbbb039901f5653f80aba74eab54d4a021b9d824",
+    "data": "{\"id\":\"07256ea3d4524b43ba5387faff64cbd9\",\"donor\":\"Beatrice\",\"email\":\"bea@gmail.com\",\"amount\":400,\"date\":\"Sun Jun 01 2025 19:36:29 GM\",\"currency\":\"EUR\",\"project\":\"Palestine\",\"message\":\"Thank you for opening such a transparent service.\",\"timestamp\":1748799389547}",
+    "nonce": 81465,
     "difficulty": 4
   },
   {
-    "timestamp": 1748613198951,
-    "hash": "000010dba5a082bda5467384f14e03572875309329a186233d0fd79b7a8f51fe",
-    "lastHash": "00003147c6b6ce1349c5607589e791775ab78aa520f40cd3d82b4240fd8ee07b",
-    "data": "{\"id\":\"0b65650590654faaab533c7328808aaa\",\"donor\":\"Martin\",\"email\":\"martin@email.com\",\"amount\":100,\"date\":\"Fri May 30 2025 15:53:18 GM\",\"currency\":\"EUR\",\"project\":\"Sudan war\",\"message\":\"Hello, thanks for a great job!\",\"timestamp\":1748613198934}",
-    "nonce": 34236,
-    "difficulty": 4
-  },
-  {
-    "timestamp": 1748624550199,
-    "hash": "00001690a072a203731c921fd2c27b0ec18ad86894f240db819689615c5f191e",
-    "lastHash": "000010dba5a082bda5467384f14e03572875309329a186233d0fd79b7a8f51fe",
-    "data": "{\"id\":\"03e38e768f3c43249a53fcddffc0fd3d\",\"donor\":\"Thom Åkesson\",\"email\":\"thom@publicrelief.com\",\"amount\":50,\"date\":\"Fri May 30 2025 19:02:30 GM\",\"currency\":\"SEK\",\"project\":\"Palestine\",\"message\":\"Hope you solve the war!\",\"timestamp\":1748624550168}",
-    "nonce": 62125,
+    "timestamp": 1748799433393,
+    "hash": "0000516bb15a122d27ba0039f325e6f731a51938a402c54eb98150b28fb97a82",
+    "lastHash": "00007308b3e3b89e83a8571b26f73cb50d4dd9f8f6723bc123fc9292dd5a2783",
+    "data": "{\"id\":\"c40781d123cd4498b9b110fb5dbb92eb\",\"donor\":\"Johan\",\"email\":\"johan@sometechjob.com\",\"amount\":500,\"date\":\"Sun Jun 01 2025 19:37:13 GM\",\"currency\":\"USD\",\"project\":\"Ukraine\",\"message\":\"I can't believe the crowdfunded project now is complete and I can donate to it, yay!\",\"timestamp\":1748799433372}",
+    "nonce": 2849,
     "difficulty": 4
   }
 ]

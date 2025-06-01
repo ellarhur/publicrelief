@@ -1,15 +1,16 @@
 Public Relief - Charity organisation using blockchain for transparency & accountability.
 
-"Every donation’s impact made visible to everyone."
+"Your donation’s impact made visible to everyone."
 
-## About our project
-In a society where a lot of things feels uncertain, we wanted to be the difference. 
-When our customers donate, they can be sure that their contribution is being correctly distributed.
-We are 100% transparent with very single donation. 
-We are the Public Relief - you can always check that your money was well spent.
+Jag har skapat en hemsida för en hitte-på organisation jag kallar “Public Relief”. Dem arbetar ideellt med att samla in pengar för olika ändamål, och i slutändan ska alla pengarna gå till att hjälpa människor utsatta för krig, svält och andra orättvisor. 
 
-## About our mission
-We help in different areas. We are spread out all over the world, and continuously change our most important project to make sure that the money goes to where it is most needed. We have aided the people that was worst smitten during the covid-19 epidemic, helped people affected by the california wildfires just last year, and provided food and water for the fleeing people of war in Sudan, Ukraine, Israel & Palestine and many more countries. Our website is updated daily for information where we are and what we are collecting donations for currently.
+“Public Relief” har märkt att människor i allmänhet har tappat förtroendet för hjälporganisationer och att pengarna man bidrar med faktiskt går till det dem ska. De har som mål att bygga upp förtroendet igen med hjälp av att lägga samtliga donationer dem samlar in på en blockkedja och visar blocken på sin hemsida. 
 
-## About our website
-We have a throurough website where donations can be searched for individually or added by you in this instant. We collect all failure messages in a log to make sure the website always run smoothly.
+På hemsidan kan man skapa en donation, se sin egen eller någon annans donation om man har donationens ID genom sökfunktionen, samt se de senaste donationerna som gjorts. Informationen i blocken inkluderar beloppet, vem som donerat, vart pengarna ska gå, tiden donationen utfördes, beloppet, valutan och om donatorn lämnade ett meddelande. 
+
+Alla bilder är nedladdade från freepik.com.
+
+Jag har dessa endpoints:
+GET / donations - alltså hämta alla donationer
+GET / donation - alltså hämta ett specifikt block med dess ID
+POST / donation - alltså skapa ett nytt block med min donation.

@@ -7,7 +7,6 @@ import { fileURLToPath } from 'url';
 import errorHandler from './middleware/errorHandler.mjs';
 import dotenv from 'dotenv';
 
-// Konfigurera dotenv med rätt sökväg till config.env
 dotenv.config({ path: './config/config.env' });
 
 const __filename = fileURLToPath(import.meta.url);
@@ -19,17 +18,14 @@ const port = 3010;
 app.use(cors());
 app.use(express.json());
 
-// Servera statiska filer från src-mappen
 app.use(express.static(path.join(__dirname)));
 
-// Specifik route för donation.html
 app.get('/donation.html', (req, res) => {
     res.sendFile(path.join(__dirname, 'pages', 'donation.html'));
 });
 
 const API_BASE = '/api/v1';
 
-// Hämta alla donationer
 app.get(`${API_BASE}/donations`, async (req, res) => {
     try {
         const donations = await Donation.getAllDonations();
@@ -40,7 +36,6 @@ app.get(`${API_BASE}/donations`, async (req, res) => {
     }
 });
 
-// Hämta en specifik donation med ID
 app.get(`${API_BASE}/donation/:id`, async (req, res) => {
     try {
         const donations = await Donation.getAllDonations();
@@ -64,10 +59,8 @@ app.get(`${API_BASE}/donation/:id`, async (req, res) => {
     }
 });
 
-// Skapa en ny donation
 app.post(`${API_BASE}/donation`, async (req, res) => {
     try {
-        // Validate required fields
         const requiredFields = ['id', 'donor', 'email', 'amount', 'currency', 'project'];
         const missingFields = requiredFields.filter(field => !req.body[field]);
         
