@@ -30,5 +30,21 @@
     "data": "{\"id\":\"c40781d123cd4498b9b110fb5dbb92eb\",\"donor\":\"Johan\",\"email\":\"johan@sometechjob.com\",\"amount\":500,\"date\":\"Sun Jun 01 2025 19:37:13 GM\",\"currency\":\"USD\",\"project\":\"Ukraine\",\"message\":\"I can't believe the crowdfunded project now is complete and I can donate to it, yay!\",\"timestamp\":1748799433372}",
     "nonce": 2849,
     "difficulty": 4
+  },
+  {
+    "timestamp": 1748859887606,
+    "hash": "000027fe35a2a49986e82751ca083e68ca13b1f10568f9755b9095f841b63f11",
+    "lastHash": "0000516bb15a122d27ba0039f325e6f731a51938a402c54eb98150b28fb97a82",
+    "data": "{\"id\":\"8f462bc7200442fea7fa8e8dc14a93c2\",\"donor\":\"Ella\",\"email\":\"ella.belle.hummerdahl@gmail.com\",\"amount\":100,\"date\":\"Mon Jun 02 2025 12:24:47 GM\",\"currency\":\"SEK\",\"project\":\"Sudan war\",\"message\":\"hej!\",\"timestamp\":1748859887587}",
+    "nonce": 12192,
+    "difficulty": 4
+  },
+  {
+    "timestamp": 1748859968609,
+    "hash": "00001b91337fa472a023afb16779ddc156a47208c35a71b2e439c8015a194098",
+    "lastHash": "000027fe35a2a49986e82751ca083e68ca13b1f10568f9755b9095f841b63f11",
+    "data": "{\"id\":\"bc81f89c93b74fcab8a9ed2ff2a3c30d\",\"donor\":\"Thom Åkesson\",\"email\":\"ella.belle.hummerdahl@gmail.com\",\"amount\":100,\"date\":\"Mon Jun 02 2025 12:26:08 GM\",\"currency\":\"EUR\",\"project\":\"Sudan war\",\"message\":\"Bra jobbat PR\",\"timestamp\":1748859968591}",
+    "nonce": 7889,
+    "difficulty": 4
   }
 ]
