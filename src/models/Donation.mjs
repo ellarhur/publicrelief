@@ -1,8 +1,9 @@
-import { createHash, mineHash, verifyHash } from '../utilities/hash.mjs';
+import { createHash } from '../utilities/hash.mjs';
 import { GENESIS_BLOCK, INITIAL_DIFFICULTY } from './genesis.mjs';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { logError, logInfo } from '../utilities/logger.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -31,8 +32,13 @@ export default class Donation {
     static async mineBlock({previousDonation, data}) {
         const timestamp = Date.now();
         const lastHash = previousDonation.hash;
+        let nonce = 0;
+        let hash = '';
         
-        const { hash, nonce } = mineHash(timestamp, lastHash, data, INITIAL_DIFFICULTY);
+        do {
+            nonce++;
+            hash = createHash(timestamp, lastHash, data, nonce);
+        } while (!hash.startsWith('0'.repeat(INITIAL_DIFFICULTY)));
         
         return new this({
             timestamp,
@@ -52,7 +58,7 @@ export default class Donation {
             throw new Error('Invalid hash');
         }
         
-        if (!verifyHash(hash, difficulty)) {
+        if (!hash.startsWith('0'.repeat(difficulty))) {
             throw new Error('Hash does not meet difficulty requirement');
         }
         
@@ -65,12 +71,22 @@ export default class Donation {
             const donations = JSON.parse(data);
             
             for (let i = 1; i < donations.length; i++) {
-                await this.validateBlock(donations[i]);
+                const { timestamp, data, hash, lastHash, nonce, difficulty } = donations[i];
+                const prevHash = donations[i - 1].hash;
+
+                if (lastHash !== prevHash) {
+                    throw new Error('Invalid chain: lastHash does not match previous block hash');
+                }
+
+                const validHash = createHash(timestamp, lastHash, data, nonce);
+                if (hash !== validHash) {
+                    throw new Error('Invalid chain: hash does not match calculated hash');
+                }
             }
             
             return donations;
         } catch (error) {
-            await this.logError('Error reading donations: ' + error.message);
+            await logError('Error reading donations: ' + error.message);
             return [];
         }
     }
@@ -80,7 +96,6 @@ export default class Donation {
             const donations = await this.getAllDonations();
             const previousDonation = donations[donations.length - 1] || this.genesis();
             
-            // Ensure donationData is properly formatted
             const formattedData = {
                 id: donationData.id,
                 donor: donationData.donor,
@@ -98,7 +113,6 @@ export default class Donation {
                 data: JSON.stringify(formattedData)
             });
 
-            // Validate the new block
             await this.validateBlock(newDonation);
 
             donations.push(newDonation);
@@ -107,39 +121,11 @@ export default class Donation {
                 JSON.stringify(donations, null, 2)
             );
             
-            await this.logInfo(`New donation created with ID: ${formattedData.id}`);
+            await logInfo(`New donation created with ID: ${formattedData.id}`);
             return newDonation;
         } catch (error) {
-            await this.logError('Error creating donation: ' + error.message);
+            await logError('Error creating donation: ' + error.message);
             throw error;
-        }
-    }
-
-    static async logError(message) {
-        try {
-            const timestamp = new Date().toString();
-            const logMessage = `[ERROR] ${timestamp}: ${message}\n`;
-            const logPath = path.join(__dirname, '../logs/error.log');
-            
-            await fs.mkdir(path.dirname(logPath), { recursive: true });
-            
-            await fs.appendFile(logPath, logMessage);
-        } catch (error) {
-            console.error('Could not log error:', error);
-        }
-    }
-
-    static async logInfo(message) {
-        try {
-            const timestamp = new Date().toString();
-            const logMessage = `[INFO] ${timestamp}: ${message}\n`;
-            const logPath = path.join(__dirname, '../logs/info.log');
-            
-            await fs.mkdir(path.dirname(logPath), { recursive: true });
-            
-            await fs.appendFile(logPath, logMessage);
-        } catch (error) {
-            console.error('Could not log info:', error);
         }
     }
 }
